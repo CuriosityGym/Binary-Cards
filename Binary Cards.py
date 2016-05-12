@@ -4,9 +4,11 @@ from PIL import ImageFont
 from PIL import ImageDraw
 import math
 
-imgWidth=57
-imgHeight=88
+imW=57
+imH=88
 sizeMultiplier=3
+imgWidth=imW*sizeMultiplier
+imgHeight=imH*sizeMultiplier
 maxNumber=50
 maxExponent=math.ceil(math.log(maxNumber,2))
 columns=5
@@ -14,7 +16,7 @@ fontSize=10
 maxNumbersPerCard=math.pow(2,maxExponent-1)
 maxRowCount=math.floor(maxNumbersPerCard/columns)
 #positionArray=np.ones((maxRowCount,columns))
-xPosM=imgWidth*sizeMultiplier/(columns)
+xPosM=imgWidth/(columns)
 yPosM=xPosM*imgHeight/imgWidth
 
 
@@ -34,8 +36,25 @@ def writeNumber(imgref, xpos, ypos, number):
     draw.text((xpos, ypos), str(number),(0,0,0),font=font)
 
 
-A=np.ones((imgHeight*sizeMultiplier,imgWidth*sizeMultiplier))
+A=np.ones((imgHeight,imgWidth))
 A.fill(255)
+
+for index in range(0, imgWidth):
+    A[0,index]=0
+
+for index in range(0, imgWidth):
+    A[imgHeight-1,index]=0
+
+for index in range(0, imgHeight):
+    A[index,0]=0
+
+
+for index in range(0, imgHeight):
+    A[index,imgWidth-1]=0   
+
+
+
+
 
 for cardNumber in range(0,maxExponent):
     im = Image.fromarray(A)
