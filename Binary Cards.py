@@ -29,7 +29,9 @@ def writeNumber(imgref, xpos, ypos, number):
     
     draw = ImageDraw.Draw(im)
     font = ImageFont.truetype("arialbd.ttf", fontSize)
-    draw.text((xpos, ypos), number,(0,0,0),font=font)
+    if(number<10):
+        number=" "+str(number)
+    draw.text((xpos, ypos), str(number),(0,0,0),font=font)
 
 
 A=np.ones((imgHeight*sizeMultiplier,imgWidth*sizeMultiplier))
@@ -52,7 +54,7 @@ for cardNumber in range(0,maxExponent):
                else:
                    rownum=rownum+1
                    
-               writeNumber(im,(rownum*xPosM)+(xPosM/4),(colnum*yPosM)+xPosM/4,str(number))
+               writeNumber(im,(rownum*xPosM)+(xPosM/4),(colnum*yPosM)+xPosM/4,number)
                counter=counter+1  
     im.save(str(cardNumber)+".jpeg")
 
