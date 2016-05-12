@@ -28,7 +28,7 @@ elif(maxNumber<70):
 def writeNumber(imgref, xpos, ypos, number):
     
     draw = ImageDraw.Draw(im)
-    font = ImageFont.truetype("arial.ttf", fontSize)
+    font = ImageFont.truetype("arialbd.ttf", fontSize)
     draw.text((xpos, ypos), number,(0,0,0),font=font)
 
 
