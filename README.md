@@ -8,5 +8,7 @@ The presence of absence of a number in a card is determined if that power of two
 
 The 6 images in the git repo are generated for maximum number 49. You can re run the program by changing that variable to generate a different set of cards.
 
+A pdf has been added which you can print on a a4 sized sheet of paper, cut and then use.
+
 
 
