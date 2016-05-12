@@ -7,7 +7,7 @@ import math
 imgWidth=57
 imgHeight=88
 sizeMultiplier=3
-maxNumber=45
+maxNumber=50
 maxExponent=math.ceil(math.log(maxNumber,2))
 columns=5
 fontSize=10
@@ -20,7 +20,7 @@ yPosM=xPosM*imgHeight/imgWidth
 
 if(maxNumber<30):
     fontSize=20   
-elif(maxNumber<50):
+elif(maxNumber<51):
     fontSize=17
 elif(maxNumber<70):
     fontSize=10
